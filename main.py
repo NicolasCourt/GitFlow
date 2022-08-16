@@ -38,6 +38,7 @@ def main():
         procesed_data.append(json.loads(line))
     exit = False
     while not exit:
+        result = ""
         code = int(input("Inserte: \n "
                          "1 para Los top 10 tweets más retweeted. \n "
                          "2 para Los top 10 usuarios en función de la cantidad de tweets que emitieron. \n"
@@ -46,7 +47,7 @@ def main():
                          "5 para SALIR"))
 
         if code == 1:
-            one(procesed_data)
+            result = one(procesed_data)
         elif code == 2:
             pass
         elif code == 3:
@@ -57,5 +58,6 @@ def main():
             exit = True
         else:
             print("numero invalido \n")
+        print(result)
 # Closing file
 main()
