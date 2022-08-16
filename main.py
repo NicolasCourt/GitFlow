@@ -8,18 +8,29 @@ def one(data):
     for i in data:
         if len(lista) < 10:
             lista.append((i['retweetCount'], i['url']))
-            sorted(lista,
+            lista = sorted(lista,
                    key=lambda x: x[1])
         else:
             lista.append((i['retweetCount'], i['url']))
-            sorted(lista,
+            lista = sorted(lista,
                    key=lambda x: x[1])
             lista.pop(0)
     return lista
 
 
-def two():
-    pass
+def two(data):
+    lista = []
+    for i in data:
+        if len(lista) < 10:
+            lista.append((i['user']['username'], i['user']['url'], i['user']['statusesCount']))
+            sorted(lista,
+                   key=lambda x: x[1])
+        else:
+            lista.append((i['user']['username'], i['user']['url'], i['user']['statusesCount']))
+            sorted(lista,
+                   key=lambda x: x[1])
+            lista.pop(0)
+    return lista
 
 
 def three():
@@ -49,7 +60,7 @@ def main():
         if code == 1:
             result = one(procesed_data)
         elif code == 2:
-            pass
+            result = two(procesed_data)
         elif code == 3:
             pass
         elif code == 4:
