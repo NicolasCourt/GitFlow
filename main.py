@@ -8,11 +8,11 @@ def one(data):
     for i in data:
         if len(lista) < 10:
             lista.append((i['retweetCount'], i['url']))
-            sorted(lista,
+            lista = sorted(lista,
                    key=lambda x: x[1])
         else:
             lista.append((i['retweetCount'], i['url']))
-            sorted(lista,
+            lista = sorted(lista,
                    key=lambda x: x[1])
             lista.pop(0)
     return lista
