@@ -1,27 +1,41 @@
 import json
 
 file_name = 'farmers-protest-tweets-2021-03-5.json'
-# Opening JSON file
-f = open(file_name)
-print(f)
-# returns JSON object as 
-# a dictionary
-data = json.load(f)
-for i in data:
-    print(i)
-# Iterating through the json
-# list
 
-def one():
-    pass
+
+def one(data):
+    lista = []
+    for i in data:
+        if len(lista) < 10:
+            lista.append((i['retweetCount'], i['url']))
+            sorted(lista,
+                   key=lambda x: x[1])
+        else:
+            lista.append((i['retweetCount'], i['url']))
+            sorted(lista,
+                   key=lambda x: x[1])
+            lista.pop(0)
+    return lista
+
 
 def two():
     pass
+
+
 def three():
     pass
+
+
 def four():
     pass
+
+
 def main():
+    file_name = input("Ingrese el nombre del archivo, favor incluir el .json")
+    procesed_data = []
+    print("cargando archivos porfavor espere")
+    for line in open(file_name, 'r'):
+        procesed_data.append(json.loads(line))
     exit = False
     while not exit:
         code = int(input("Inserte: \n "
@@ -32,7 +46,7 @@ def main():
                          "5 para SALIR"))
 
         if code == 1:
-            pass
+            one(procesed_data)
         elif code == 2:
             pass
         elif code == 3:
@@ -44,4 +58,4 @@ def main():
         else:
             print("numero invalido \n")
 # Closing file
-f.close()
+main()
