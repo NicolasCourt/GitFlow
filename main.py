@@ -26,7 +26,7 @@ def two(data):
             sorted(lista,
                    key=lambda x: x[1])
         else:
-            lista.append((i['retweetCount'], i['url']))
+            lista.append((i['user']['username'], i['user']['url'], i['user']['statusesCount']))
             sorted(lista,
                    key=lambda x: x[1])
             lista.pop(0)
