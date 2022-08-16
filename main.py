@@ -33,8 +33,17 @@ def two(data):
     return lista
 
 
-def three():
-    pass
+def three(data):
+    dic = {}
+    for i in data:
+        if i['date'].split('T')[0] in dic.keys():
+            dic[i['date'].split('T')[0]] += 1
+        else:
+            dic[i['date'].split('T')[0]] = 0
+    sorted_dic = dict(sorted(dic.items(), key=lambda item: item[1]))
+    keys = sorted_dic.keys()[-9:]
+    values = sorted_dic.values()[-9:]
+    return [(keys[i], values[i]) for i in range(10)]
 
 
 def four():
@@ -62,7 +71,7 @@ def main():
         elif code == 2:
             result = two(procesed_data)
         elif code == 3:
-            pass
+            result = three(procesed_data)
         elif code == 4:
             pass
         elif code == 5:
