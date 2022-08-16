@@ -22,7 +22,7 @@ def two(data):
     lista = []
     for i in data:
         if len(lista) < 10:
-            lista.append((i['user']['username'], i['user']['url'], i['statusesCount']))
+            lista.append((i['user']['username'], i['user']['url'], i['user']['statusesCount']))
             sorted(lista,
                    key=lambda x: x[1])
         else:
